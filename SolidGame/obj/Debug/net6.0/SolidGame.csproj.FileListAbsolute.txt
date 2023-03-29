@@ -1,0 +1,15 @@
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\SolidGame.exe
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\SolidGame.deps.json
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\SolidGame.runtimeconfig.json
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\SolidGame.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\SolidGame.pdb
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.csproj.AssemblyReference.cache
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.AssemblyInfoInputs.cache
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.AssemblyInfo.cs
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.csproj.CoreCompileInputs.cache
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\refint\SolidGame.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.pdb
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.genruntimeconfig.cache
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\ref\SolidGame.dll
