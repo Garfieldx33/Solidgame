@@ -13,3 +13,17 @@ C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\refint\SolidGame.
 C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.pdb
 C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.genruntimeconfig.cache
 C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\ref\SolidGame.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.csproj.CopyComplete
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\JsonAppSettings.json
