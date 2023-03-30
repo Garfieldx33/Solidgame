@@ -5,9 +5,9 @@ using SolidGame;
 Console.WriteLine("Здравствуй, друг. Скажи мне, как тебя зовут?");
 
 string _playername = Console.ReadLine();
-JsonGameSettings settings = InitGameSettings();
+var settings = InitGameSettingsJson();
 
-Console.WriteLine($"Приятно познакомиться, {_playername}.\r\nВот текущие настройки игры \r\n{settings.ToString()}");
+Console.WriteLine($"Приятно познакомиться, {_playername}.\r\nВот текущие настройки игры:\r\n{settings.ToString()}");
 settings.PrepairingToGame();
 
 Game CurrentGame = new Game(_playername, settings);
@@ -16,7 +16,7 @@ Game CurrentGame = new Game(_playername, settings);
 
 
 
-JsonGameSettings InitGameSettings()
+JsonGameSettings InitGameSettingsJson()
 {
     var builder = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
@@ -24,4 +24,6 @@ JsonGameSettings InitGameSettings()
     IConfiguration config = builder.Build();
     return config.GetSection("GameSettings").Get<JsonGameSettings>();
 }
+
+InitGameSettingsXml
 

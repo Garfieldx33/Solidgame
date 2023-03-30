@@ -17,6 +17,6 @@ namespace SolidGame
         public bool IsNeedToChangeSettings();
         public void ChangeSettings();
         public void PrepairingToGame();
-
+        public void UpdateSettings();
     }
 }
