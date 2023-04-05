@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SolidGame.ConfigClasses
 {
-    public interface IConfigurator
+    public interface IConfigReader
     {
         public GameSettingsAbstract InitGameSettings();
     }

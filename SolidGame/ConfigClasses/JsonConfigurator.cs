@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SolidGame.ConfigClasses
 {
-    public class JsonConfigurator : IConfigurator
+    public class JsonConfigurator : IConfigReader
     {
         public GameSettingsAbstract InitGameSettings()
         {

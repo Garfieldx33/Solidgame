@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace SolidGame.ConfigClasses
 {
-    public class XmlConfigurator : IConfigurator
+    public class XmlConfigurator : IConfigReader
     {
         public GameSettingsAbstract InitGameSettings()
         {
