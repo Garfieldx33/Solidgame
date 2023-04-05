@@ -4,31 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SolidGame
+namespace SolidGame.SettingsClasses
 {
-    // Данный класс показывает принцип единой ответственности. В данном случае - за настройки игры.
-    public class JsonGameSettings : IGameSettings
+    public class GameSettingsAbstract : IGameSettings
     {
         public int TriesCount { get; set; }
         public int RangeFrom { get; set; }
         public int RangeTo { get; set; }
-
-        /*public JsonGameSettings(int TriesCnt, int RngForm, int RngTo) 
-        {
-            TriesCount = TriesCnt;
-            RangeFrom = RngForm;
-            RangeTo = RngTo;
-        }*/
 
         public bool CheckSettings()
         {
             bool isTiesCountCorrect = TriesCount > 0;
             if (!isTiesCountCorrect) Console.WriteLine("Количество попыток должно быть больше нуля");
 
-            bool isRangeFromCorrect = (RangeFrom < RangeTo);
+            bool isRangeFromCorrect = RangeFrom < RangeTo;
             if (!isRangeFromCorrect) Console.WriteLine("Начало диапазона чисел должно быть меньше конца диапазона");
 
-            return (isTiesCountCorrect && isRangeFromCorrect);
+            return isTiesCountCorrect && isRangeFromCorrect;
         }
 
         public override string ToString()
@@ -40,42 +32,43 @@ namespace SolidGame
         {
             Console.WriteLine("Если хотите изменить настройки перед началом игры, то введите 1");
             return Console.ReadKey().KeyChar == '1';
-
         }
 
         public void ChangeSettings()
         {
+            int defaultTriesCount = TriesCount;
+            int defaultRangeFrom = RangeFrom;
+            int defaultRangeTo = RangeTo;
+
             bool isNewSettingsCorrect = false;
-            while(!isNewSettingsCorrect)
+            while (!isNewSettingsCorrect)
             {
                 Console.WriteLine("Введите желаемое количество попыток");
-                int newTriesCount = int.Parse(Console.ReadLine());
+                TriesCount = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Введите желаемое начало диапазона");
-                int newRangeFrom = int.Parse(Console.ReadLine());
+                RangeFrom = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Введите желаемый конец диапазона");
-                int newRangeto = int.Parse(Console.ReadLine());
+                RangeTo = int.Parse(Console.ReadLine());
 
-                var newGameSettings = new JsonGameSettings
+                if (CheckSettings())
                 {
-                    TriesCount = newTriesCount,
-                    RangeFrom = newRangeFrom,
-                    RangeTo = newRangeto
-                };
-                
-                if (newGameSettings.CheckSettings())
-                {
-                    TriesCount = newGameSettings.TriesCount;
-                    RangeFrom = newGameSettings.RangeFrom;
-                    RangeTo = newGameSettings.RangeTo;
-
+                    UpdateSettings(TriesCount, RangeFrom, RangeTo);
                     isNewSettingsCorrect = true;
                 }
                 else
                 {
-                    Console.WriteLine("Если вы передумали изменять настройки, то нажмите q");
-                    if (Console.ReadKey().KeyChar == 'q') return;
+                    Console.WriteLine("Вы ввели неверные настройки");
+                    Console.WriteLine("Если вы хотите сбросить настройки и выйти, то нажмите q");
+                    if (Console.ReadKey().KeyChar == 'q')
+                    {
+                        TriesCount = defaultTriesCount;
+                        RangeFrom = defaultRangeFrom;
+                        RangeTo = defaultRangeTo;
+
+                        return;
+                    }
                 }
             }
         }
@@ -94,12 +87,12 @@ namespace SolidGame
                     ChangeSettings();
                 }
             }
-            Console.WriteLine("Отлично, погнали");
+            Console.WriteLine("\n\rОтлично, погнали");
         }
 
-        public void UpdateSettings()
+        public virtual void UpdateSettings(int newTriesCount, int newRangeFrom, int newRangeTo)
         {
-            //to do реализовать изменение файла конфигурации для каждого типа файлов конфига
+            throw new NotImplementedException("Метод внесения изменений в конфигурационный файл не реализован");
         }
     }
 }

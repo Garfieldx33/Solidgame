@@ -27,3 +27,4 @@ C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\System.Text.Json.
 C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\LAS\source\repos\SolidGame\SolidGame\obj\Debug\net6.0\SolidGame.csproj.CopyComplete
 C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\JsonAppSettings.json
+C:\Users\LAS\source\repos\SolidGame\SolidGame\bin\Debug\net6.0\XmlAppSettings.xml

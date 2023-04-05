@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SolidGame
+namespace SolidGame.SettingsClasses
 {
     // Интерфейс я сделал для случая когда вместо Json файла конфигурации используется XML
     public interface IGameSettings
@@ -17,6 +17,6 @@ namespace SolidGame
         public bool IsNeedToChangeSettings();
         public void ChangeSettings();
         public void PrepairingToGame();
-        public void UpdateSettings();
+        public void UpdateSettings(int newTriesCount, int newRangeFrom, int newRangeTo);
     }
 }

@@ -3,24 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SolidGame.SettingsClasses;
 
-namespace SolidGame
+namespace SolidGame.GameClasses
 {
-    public class Game
+    public class GameStarter
     {
         public string PlayerName;
         public IGameSettings PlayerSettings;
-
-        public Game(string GamerName, IGameSettings GamerSettings) 
+        public IGame Game;
+        public GameStarter(string GamerName, IGameSettings GamerSettings, IGame game)
         {
             PlayerName = GamerName;
             PlayerSettings = GamerSettings;
+            Game = game;
         }
 
-        public bool OkLetsGo()
+        public void OkLetsPlay()
         {
-
-            return true;
+            Game.StartGame(PlayerSettings);
         }
     }
 }
