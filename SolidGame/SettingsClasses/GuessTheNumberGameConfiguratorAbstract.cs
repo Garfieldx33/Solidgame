@@ -6,18 +6,32 @@ using System.Threading.Tasks;
 
 namespace SolidGame.SettingsClasses
 {
-    public class GameSettingsAbstract : IGameSettings
+    public class GuessTheNumberGameConfiguratorAbstract : IGameSettings
     {
-        public int TriesCount { get; set; }
-        public int RangeFrom { get; set; }
-        public int RangeTo { get; set; }
+        public Dictionary<string, string> _settings = new();
+
+        public int _triesCount;
+        public int _rangeFrom;
+        public int _rangeTo;
+
+        Dictionary<string, string> IGameSettings.Settings
+        {
+            get => _settings;
+        }
+
+        public void InitSettings()
+        {
+            _triesCount = int.Parse(_settings["TriesCount"]);
+            _rangeFrom = int.Parse(_settings["RangeFrom"]);
+            _rangeTo = int.Parse(_settings["RangeTo"]);
+        }
 
         public bool CheckSettings()
         {
-            bool isTiesCountCorrect = TriesCount > 0;
+            bool isTiesCountCorrect = _triesCount > 0;
             if (!isTiesCountCorrect) Console.WriteLine("Количество попыток должно быть больше нуля");
 
-            bool isRangeFromCorrect = RangeFrom < RangeTo;
+            bool isRangeFromCorrect = _rangeFrom < _rangeTo;
             if (!isRangeFromCorrect) Console.WriteLine("Начало диапазона чисел должно быть меньше конца диапазона");
 
             return isTiesCountCorrect && isRangeFromCorrect;
@@ -25,7 +39,7 @@ namespace SolidGame.SettingsClasses
 
         public override string ToString()
         {
-            return $"Количество попыток = {TriesCount}\r\nДиапазон значений от {RangeFrom} до {RangeTo}";
+            return $"Количество попыток = {_triesCount}\r\nДиапазон значений от {_rangeFrom} до {_rangeTo}";
         }
 
         public bool IsNeedToChangeSettings()
@@ -36,25 +50,30 @@ namespace SolidGame.SettingsClasses
 
         public void ChangeSettings()
         {
-            int defaultTriesCount = TriesCount;
-            int defaultRangeFrom = RangeFrom;
-            int defaultRangeTo = RangeTo;
+            int defaultTriesCount = _triesCount;
+            int defaultRangeFrom = _rangeFrom;
+            int defaultRangeTo = _rangeTo;
 
             bool isNewSettingsCorrect = false;
             while (!isNewSettingsCorrect)
             {
                 Console.WriteLine("Введите желаемое количество попыток");
-                TriesCount = int.Parse(Console.ReadLine());
+                _triesCount = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Введите желаемое начало диапазона");
-                RangeFrom = int.Parse(Console.ReadLine());
+                _rangeFrom = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Введите желаемый конец диапазона");
-                RangeTo = int.Parse(Console.ReadLine());
+                _rangeTo = int.Parse(Console.ReadLine());
 
                 if (CheckSettings())
                 {
-                    UpdateSettings(TriesCount, RangeFrom, RangeTo);
+                    UpdateSettings(new Dictionary<string, string> { 
+                        { "RangeTo", _rangeTo.ToString() }, 
+                        { "RangeFrom", _rangeFrom.ToString() }, 
+                        { "TriesCount", _triesCount.ToString() } 
+                    });
+
                     isNewSettingsCorrect = true;
                 }
                 else
@@ -63,9 +82,9 @@ namespace SolidGame.SettingsClasses
                     Console.WriteLine("Если вы хотите сбросить настройки и выйти, то нажмите q");
                     if (Console.ReadKey().KeyChar == 'q')
                     {
-                        TriesCount = defaultTriesCount;
-                        RangeFrom = defaultRangeFrom;
-                        RangeTo = defaultRangeTo;
+                        _triesCount = defaultTriesCount;
+                        _rangeFrom = defaultRangeFrom;
+                        _rangeTo = defaultRangeTo;
 
                         return;
                     }
@@ -90,9 +109,15 @@ namespace SolidGame.SettingsClasses
             Console.WriteLine("\n\rОтлично, погнали");
         }
 
-        public virtual void UpdateSettings(int newTriesCount, int newRangeFrom, int newRangeTo)
+        public virtual void UpdateSettings(Dictionary<string, string> settings)
         {
             throw new NotImplementedException("Метод внесения изменений в конфигурационный файл не реализован");
         }
+
+        public virtual void ReadSettings()
+        {
+            throw new NotImplementedException("Метод чтения настроек из конфигурационного файла не реализован");
+        }
+
     }
 }

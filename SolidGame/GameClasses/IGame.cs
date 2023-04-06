@@ -9,6 +9,7 @@ namespace SolidGame.GameClasses
 {
     public interface IGame
     {
-        public void StartGame(IGameSettings gameSettings);
+        IGameSettings GameSettings { get; set; }
+        public void StartGame(string GamerName);
     }
 }

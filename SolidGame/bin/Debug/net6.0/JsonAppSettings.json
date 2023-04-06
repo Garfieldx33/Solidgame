@@ -1,7 +1,7 @@
 {
   "GameSettings": {
     "RangeFrom": "0",
-    "RangeTo": "10",
-    "TriesCount": "10"
+    "RangeTo": "4",
+    "TriesCount": "2"
   }
 } 

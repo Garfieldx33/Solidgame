@@ -9,21 +9,29 @@ namespace SolidGame.GameClasses
 {
     internal class GuessTheNumberGame : IGame
     {
+        GuessTheNumberGameConfiguratorAbstract gameSettings;
+        public IGameSettings GameSettings 
+        { 
+            get => gameSettings; 
+            set => gameSettings = (GuessTheNumberGameConfiguratorAbstract)value; 
+        }
+
         public GuessTheNumberGame()
         {
 
         }
-        public void StartGame(IGameSettings gameSettings)
-        {
-            bool isGuessed = false;
-            Random guessRnd = new Random();
-            int guessedNumber = guessRnd.Next(gameSettings.RangeFrom, gameSettings.RangeTo);
 
-            Console.WriteLine($"Я загадал число от {gameSettings.RangeFrom} до {gameSettings.RangeTo} \r\n У тебя {gameSettings.TriesCount} попыток");
+        public void StartGame(string GamerName)
+        {
+            Random guessRnd = new Random();
+            int guessedNumber = guessRnd.Next(gameSettings._rangeFrom, gameSettings._rangeTo);
+
+            Console.WriteLine($"Я загадал число от {gameSettings._rangeFrom} до {gameSettings._rangeTo} \r\n У тебя {gameSettings._triesCount} попыток");
             Console.WriteLine($"Если Вам надоест игра, введите q");
-            for (int t = 1; t <= gameSettings.TriesCount; t++)
+            
+            for (int t = 1; t <= gameSettings._triesCount; t++)
             {
-                string strCnt = $"У вас осталось {gameSettings.TriesCount - t} попыток";
+                string strCnt = $"У вас осталось {gameSettings._triesCount - t} попыток";
                 Console.WriteLine($"Введите предполагаемое целое число");
                 string inpitStr = Console.ReadLine();
                 if (inpitStr != "q")
@@ -31,26 +39,23 @@ namespace SolidGame.GameClasses
                     int inputNumber = 0;
                     if (int.TryParse(inpitStr, out inputNumber))
                     {
-                        if (inputNumber >= gameSettings.RangeFrom && inputNumber <= gameSettings.RangeTo)
+                        if (inputNumber >= gameSettings._rangeFrom && inputNumber <= gameSettings._rangeTo)
                         {
-                            isGuessed = guessedNumber == inputNumber;
 
-                            if (!isGuessed)
+                            if (guessedNumber != inputNumber)
                             {
                                 if (guessedNumber < inputNumber)
                                 {
                                     Console.WriteLine($"Загаданное число меньше.{strCnt}");
-
                                 }
                                 else
                                 {
                                     Console.WriteLine($"Загаданное число больше. {strCnt}");
                                 }
-
                             }
                             else
                             {
-                                Console.WriteLine($"Поздравляю, Вы угадали число {inputNumber} за {t} попыток");
+                                Console.WriteLine($"Поздравляю,{GamerName}, Вы угадали число {inputNumber} за {t} попыток");
                                 return;
                             }
                         }
