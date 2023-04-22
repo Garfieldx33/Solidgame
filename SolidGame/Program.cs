@@ -5,7 +5,7 @@ using SolidGame.SettingsClasses;
 Console.WriteLine("Здравствуй, друг. Скажи мне, как тебя зовут?");
 string _playername = Console.ReadLine();
 Console.WriteLine($"Приятно познакомиться, {_playername}.\r\n Начинаем считывание конфигурации...");
-IGameSettings configReader = new XmlGameConfigurator(); // Можно использовать XmlGameSettings
+IGameSettings configReader = new JsonGameConfigurator(); // Можно использовать XmlGameSettings()
 configReader.ReadSettings();
 configReader.InitSettings();
 Console.WriteLine(configReader.ToString());
