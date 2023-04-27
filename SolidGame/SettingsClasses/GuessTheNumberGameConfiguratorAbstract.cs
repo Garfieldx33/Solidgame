@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SolidGame.SettingsClasses
 {
-    public class GuessTheNumberGameConfiguratorAbstract : IGameSettings
+    public abstract class GuessTheNumberGameConfiguratorAbstract : IGameSettings
     {
         public Dictionary<string, string> _settings = new();
 
@@ -109,15 +109,9 @@ namespace SolidGame.SettingsClasses
             Console.WriteLine("\n\rОтлично, погнали");
         }
 
-        public virtual void UpdateSettings(Dictionary<string, string> settings)
-        {
-            throw new NotImplementedException("Метод внесения изменений в конфигурационный файл не реализован");
-        }
+        public abstract void UpdateSettings(Dictionary<string, string> settings);
 
-        public virtual void ReadSettings()
-        {
-            throw new NotImplementedException("Метод чтения настроек из конфигурационного файла не реализован");
-        }
+        public abstract void ReadSettings();
 
     }
 }
